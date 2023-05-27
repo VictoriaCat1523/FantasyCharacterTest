@@ -55,25 +55,9 @@ namespace FantasyCharacterTest
                 default:
                     // Отображение результата
                     int maxIndex = GetMaxIndex(answers);
-                    string result = "";
-                    switch (maxIndex)
-                    {
-                        case 0:
-                            result = "Вам подходит роль храброго воина или рыцаря.";
-                            break;
-                        case 1:
-                            result = "Вам подойдет роль отважного путешественника или стрелка.";
-                            break;
-                        case 2:
-                            result = "Вам больше подходит роль мудрого волшебника или колдуна.";
-                            break;
-                        case 3:
-                            result = "Вы подходите для роли хитрого вора или скрытного убийцы.";
-                            break;
-                    }
-                    Result result_test = new Result();
-                    result_test.initResultat(result);
-                    result_test.ShowDialog();                    
+                    FormResult result_test = new FormResult();
+                    result_test.initResultat(maxIndex);
+                    result_test.ShowDialog();
                     Close();
                     break;
             }
@@ -98,13 +82,13 @@ namespace FantasyCharacterTest
                 if (questionIndex < 3)
                 {
                     if (rbtnAnswer1.Checked)
-                        answers[questionIndex] = 0;
+                        answers[0]++;
                     else if (rbtnAnswer2.Checked)
-                        answers[questionIndex] = 1;
+                        answers[1]++;
                     else if (rbtnAnswer3.Checked)
-                        answers[questionIndex] = 2;
+                        answers[2]++;
                     else if (rbtnAnswer4.Checked)
-                        answers[questionIndex] = 3;
+                        answers[3]++;
                 }
                 else
                     btnNext.Text = "Завершить";
@@ -122,6 +106,6 @@ namespace FantasyCharacterTest
                 lblError.Visible = true;
             }
         }
-       
+
     }
 }
