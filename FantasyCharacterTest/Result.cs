@@ -16,24 +16,25 @@ namespace FantasyCharacterTest
         {
             InitializeComponent();
         }
-        public void initResultat(int resultNum)
+        
+        public void InitResultat(int resultNum,string name)
         {
             switch (resultNum)
             {
                 case 0:
-                    result_text.Text = "Вам подходит роль храброго воина или рыцаря.";
+                    result_text.Text = name + ", вам подходит роль храброго воина или рыцаря.";
                     pictureBox1.Image = Properties.Resources.knight;
                     break;
                 case 1:
-                    result_text.Text = "Вам подойдет роль отважного путешественника или стрелка.";
+                    result_text.Text = name + ", вам подойдет роль отважного путешественника или стрелка.";
                     pictureBox1.Image = Properties.Resources.traveler;
                     break;
                 case 2:
-                    result_text.Text = "Вам больше подходит роль мудрого волшебника или колдуна.";
+                    result_text.Text = name + ", вам больше подходит роль мудрого волшебника или колдуна.";
                     pictureBox1.Image = Properties.Resources.wizard;
                     break;
                 case 3:
-                    result_text.Text = "Вы подходите для роли хитрого вора или скрытного убийцы.";
+                    result_text.Text = name + ", вы подходите для роли хитрого вора или скрытного убийцы.";
                     pictureBox1.Image = Properties.Resources.killer;
                     break;
             }

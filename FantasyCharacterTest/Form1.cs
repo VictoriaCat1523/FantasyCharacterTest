@@ -32,6 +32,7 @@ namespace FantasyCharacterTest
                 lblError.Text = "Поставьте галочку для продолжения!";
                 return;
             }
+
             lblError.Visible = false;
             progressBar.Visible = true;
             lblSetting.Visible = true;
@@ -50,6 +51,7 @@ namespace FantasyCharacterTest
                 timer.Stop();
                 BackColor = Control.DefaultBackColor;
                 FormTest formTest = new FormTest();
+                formTest.SetName(textBoxName.Text);
                 formTest.ShowDialog();
                 checkBox.Checked = false;
                 textBoxName.Text = "";

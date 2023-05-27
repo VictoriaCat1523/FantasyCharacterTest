@@ -14,6 +14,7 @@ namespace FantasyCharacterTest
     {
         int questionIndex = 0;
         int[] answers;
+        string name = "";
         public FormTest()
         {
             InitializeComponent();
@@ -56,13 +57,17 @@ namespace FantasyCharacterTest
                     // Отображение результата
                     int maxIndex = GetMaxIndex(answers);
                     FormResult result_test = new FormResult();
-                    result_test.initResultat(maxIndex);
+                    result_test.InitResultat(maxIndex, name);
                     result_test.ShowDialog();
                     Close();
                     break;
             }
         }
+        public void SetName(string name1)
+        {
+            name = name1;
 
+        }
         private int GetMaxIndex(int[] array)
         {
             int maxIndex = 0;
@@ -79,22 +84,20 @@ namespace FantasyCharacterTest
             if (rbtnAnswer1.Checked || rbtnAnswer2.Checked || rbtnAnswer3.Checked || rbtnAnswer4.Checked)
             {
                 questionIndex++;
-                if (questionIndex < 3)
-                {
                     if (rbtnAnswer1.Checked)
                         answers[0]++;
-                    else if (rbtnAnswer2.Checked)
+                    if (rbtnAnswer2.Checked)
                         answers[1]++;
-                    else if (rbtnAnswer3.Checked)
+                    if (rbtnAnswer3.Checked)
                         answers[2]++;
-                    else if (rbtnAnswer4.Checked)
+                    if (rbtnAnswer4.Checked)
                         answers[3]++;
-                }
-                else
-                    btnNext.Text = "Завершить";
+                
+                
+                if (questionIndex == 3)   btnNext.Text = "Завершить";
 
                 UpdateQuestion();
-                // Сброс выбора радиокнопок
+                // Сброс выбора кнопок
                 rbtnAnswer1.Checked = false;
                 rbtnAnswer2.Checked = false;
                 rbtnAnswer3.Checked = false;
